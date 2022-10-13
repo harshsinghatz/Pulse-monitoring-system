@@ -50,3 +50,19 @@ h1{
   height: 50px;
   width: 50px;
 }
+
+.normal{
+  color:green;
+}
+
+.not-normal{
+  color:red;
+}
+
+.not-normal-circle{
+  background-color: rgb(255, 169, 169);
+}
+
+.not-normal-circle >h2{
+  color:red;
+}

@@ -38,6 +38,7 @@ export const options = {
 
 function App() {
   const [data, setData] = useState([]);
+  const isNormal=((data.at(-1) ?? 1)>=60 && ((data.at(-1) ?? 1))<=100);
   const chartData = {
     labels: ["first", "second", "third", "fourth", "fifth"],
     datasets:[{
@@ -78,9 +79,10 @@ function App() {
       <h1>Health Monitoring System</h1>
       </div>
       
-      <div className="circle">
+      <div className={`circle ${isNormal?"":"not-normal-circle"}`}>
         <h2>{data.at(-1) ?? "Loading..."}</h2>
       </div>
+      <p className={`${isNormal?"normal":"not-normal"}`}>{(isNormal)?"Normal":"Abnormal"}</p>
       <div className="chart-container">
       <Bar data={chartData} options={options}/>
       </div>
